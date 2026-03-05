@@ -1,0 +1,551 @@
+/* Variables Globales */
+:root {
+    --bg-color: #0d1117;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-main: #ffffff;
+    --text-secondary: #a3a3a3;
+    --accent-cyan: #7df9ff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    margin: 0;
+}
+
+h1 {
+    color: var(--accent-cyan);
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+.subtitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-top: -10px;
+    margin-bottom: 50px;
+}
+
+/* --- CAJA PADRE (GRID) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* --- CAJAS HIJAS --- */
+.color-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+}
+
+/* Animación de Hover */
+.color-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Línea de color lateral */
+.color-bar {
+    width: 6px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 0.3s ease;
+}
+
+.color-card:hover .color-bar {
+    width: 10px;
+}
+
+/* Resplandor (Glow) */
+.glow {
+    position: absolute;
+    left: -30px;
+    width: 80px;
+    height: 80px;
+    filter: blur(40px);
+    opacity: 0.3;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+.color-card:hover .glow {
+    opacity: 0.6;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    margin-left: 15px;
+}
+
+.color-name {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.color-desc {
+    margin: 5px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Paleta de Colores */
+.red { background-color: #ff4d4d; }
+.orange { background-color: #ffa500; }
+.green { background-color: #2ecc71; }
+.blue { background-color: #3498db; }
+.purple { background-color: #9b59b6; }
+.yellow { background-color: #f1c40f; }
+.radioactive { background-color: greenyellow;}
+/* Paleta de Colores Extendida */
+.pink { background-color: #ff69b4; }
+.black { background-color: #000000; border: 1px solid #333; } /* Un borde extra para que no se pierda */
+.white { background-color: #ffffff; }
+.brown { background-color: #8b4513; }
+.silver { background-color: #c0c0c0; }
+.gold { background-color: #ffd700; }
+@keyframes pulse-nuclear {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+}
+
+.glow.radioactive {
+    animation: pulse-nuclear 1.5s infinite ease-in-out;
+}
+/* El toque especial para tu sección Nuclear */
+.radioactive { 
+    background-color: #39ff14; /* Verde neón radioactivo */
+    box-shadow: 0 0 10px #39ff14;
+}
+
+/* Ajuste específico para el texto en la tarjeta blanca (opcional) */
+.color-card:has(.white) .color-name {
+    color: #fff; /* Mantener blanco o cambiar a gris oscuro si prefieres contraste */
+}
+
+/* --- Animaciones Únicas --- */
+
+/* Rojo: Latido de corazón (Pasión) */
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Naranja/Amarillo: Pulso solar (Energía/Sol) */
+@keyframes sun-glow {
+    0% { filter: blur(30px) opacity(0.5); }
+    50% { filter: blur(50px) opacity(0.9); }
+    100% { filter: blur(30px) opacity(0.5); }
+}
+
+/* Azul/Verde: Flotación suave (Calma/Naturaleza) */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Púrpura: Brillo elegante (Lujo) */
+@keyframes shimmer {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Nuclear: Parpadeo de alarma (Peligro) */
+@keyframes warning {
+    0%, 100% { background-color: #39ff14; box-shadow: 0 0 5px #39ff14; }
+    50% { background-color: #ff0000; box-shadow: 0 0 30px #ff0000; }
+}
+
+/* Blanco/Plata: Destello sutil (Pureza/Modernidad) */
+@keyframes flash {
+    0% { stop-color: #fff; opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Aplicar a los 'Glows' o a la barra lateral según prefieras */
+
+.color-card:hover .glow.red {
+    animation: beat 0.8s infinite;
+}
+
+.color-card:hover .glow.orange, 
+.color-card:hover .glow.yellow {
+    animation: sun-glow 2s infinite ease-in-out;
+}
+
+.color-card:hover .glow.blue, 
+.color-card:hover .glow.green {
+    animation: float 3s infinite ease-in-out;
+}
+
+.color-card:hover .glow.purple, 
+.color-card:hover .glow.gold {
+    animation: shimmer 1.5s infinite alternate;
+}
+
+.color-card:hover .glow.radioactive {
+    animation: warning 0.4s infinite; /* ¡Parpadeo rápido de emergencia! */
+}
+
+.color-card:hover .glow.white, 
+.color-card:hover .glow.silver {
+    animation: flash 1s infinite alternate;
+}
+
+.color-card:hover .glow.black {
+    /* El negro absorbe luz, lo hacemos más denso */
+    transform: scale(2);
+    opacity: 0.8;
+    filter: blur(10px);
+}
+/* --- Animación de Flores para Pink --- */
+
+.flower-power {
+    position: relative;
+}
+
+/* Creamos pétalos virtuales con pseudo-elementos */
+.flower-power::before, 
+.flower-power::after {
+    content: "🌸";
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: all 0.6s ease;
+    z-index: 0;
+    pointer-events: none; /* Para que no estorben al mouse */
+}
+
+/* Posición inicial escondida detrás del contenido */
+.flower-power::before { top: 20%; right: 20%; }
+.flower-power::after { bottom: 20%; right: 40%; }
+
+/* --- Efecto al hacer HOVER --- */
+.flower-power:hover::before {
+    opacity: 0.8;
+    transform: translate(40px, -40px) rotate(45deg); /* Sale volando hacia arriba */
+}
+
+.flower-power:hover::after {
+    opacity: 0.6;
+    transform: translate(-30px, -50px) rotate(-20deg) scale(1.2); /* Sale hacia el otro lado */
+}
+
+/* Animación continua de balanceo para las flores */
+@keyframes flower-sway {
+    0% { transform: translate(40px, -40px) rotate(45deg); }
+    50% { transform: translate(45px, -50px) rotate(60deg); }
+    100% { transform: translate(40px, -40px) rotate(45deg); }
+}
+
+.flower-power:hover::before {
+    animation: flower-sway 2s infinite ease-in-out;
+}
+
+/* --- Animación de Tsunami Horizontal (Izquierda a Derecha) --- */
+
+.tsunami-horizontal {
+    position: relative;
+    overflow: hidden; /* Clave para ocultar la ola antes de que entre */
+    z-index: 1;
+}
+
+.tsunami-horizontal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -110%; /* Empieza fuera de la tarjeta a la izquierda */
+    width: 110%; /* Un poco más ancha para cubrir todo al final */
+    height: 100%;
+    
+    /* Degradado que parece una ola: Azul oscuro -> Azul claro -> Espuma Blanca */
+    background: linear-gradient(
+        90deg, 
+        rgba(20, 50, 100, 0.8) 0%, 
+        rgba(52, 152, 219, 0.6) 85%, 
+        rgba(255, 255, 255, 0.9) 100%
+    );
+    
+    /* Transición rápida y fuerte como un impacto */
+    transition: left 0.7s cubic-bezier(0.21, 0.61, 0.35, 1);
+    z-index: -1;
+}
+
+/* Al hacer Hover, la ola barre hacia la derecha */
+.tsunami-horizontal:hover::before {
+    left: 0;
+}
+
+/* Animación de "sacudida" sutil al recibir el impacto */
+@keyframes impact-shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(5px); }
+    40% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
+.tsunami-horizontal:hover {
+    animation: impact-shake 0.4s ease-out;
+}
+
+/* --- Animación de Salpicadura Realista (Splatter) --- */
+
+/* --- Estilos para la Tarjeta Roja Especial --- */
+/* Contenedor que ocupa toda la tarjeta */
+/* --- Estilos Base --- */
+.red-special {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.blood-rain-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.main-drop {
+    position: absolute;
+    top: -20px;
+    width: 3px;
+    height: 10px;
+    background: #8a0303;
+    border-radius: 50% 50% 20% 20%;
+    opacity: 0;
+    transform: translateX(-50%);
+}
+
+/* --- ACTIVACIÓN Y ALEATORIEDAD --- */
+
+/* Solo se animan cuando el padre tiene hover */
+.red-special:hover .main-drop {
+    animation: water-splash-drop var(--speed, 2.2s) infinite cubic-bezier(0.4, 0, 1, 1);
+}
+
+@keyframes water-splash-drop {
+    0% { top: -20px; opacity: 0; transform: translateX(-50%) scaleY(1); }
+    10% { opacity: 1; }
+    45% { opacity: 1; transform: translateX(-50%) scaleY(1.5); }
+    50% { 
+        top: var(--impact-y); 
+        opacity: 1;
+        width: 6px; height: 2px;
+        background: #8a0303;
+        box-shadow: 0 0 0 0 #8a0303;
+    }
+    60% {
+        opacity: 0.8;
+        width: 2px; height: 2px;
+        background: transparent;
+        box-shadow: 
+            -12px -8px 0 0px #8a0303, 
+            12px -8px 0 0px #8a0303, 
+            -5px -15px 0 -0.5px #b30000, 
+            5px -15px 0 -0.5px #b30000,
+            0 -10px 0 1px #8a0303;
+        transform: translateX(-50%) scale(2.5);
+    }
+    75%, 100% { opacity: 0; transform: translateX(-50%) scale(4); }
+}
+
+/* Configuración Individual (X, Y, Tiempo y Velocidad)
+   Cambiamos 'animation-delay' y '--speed' para romper la simetría
+*/
+.d1 { left: 15%; --impact-y: 65%; animation-delay: 0.1s; --speed: 2.1s; }
+.d2 { left: 82%; --impact-y: 82%; animation-delay: 0.8s; --speed: 2.4s; }
+.d3 { left: 45%; --impact-y: 40%; animation-delay: 1.5s; --speed: 1.9s; }
+.d4 { left: 28%; --impact-y: 75%; animation-delay: 0.3s; --speed: 2.2s; }
+.d5 { left: 65%; --impact-y: 55%; animation-delay: 1.2s; --speed: 2.5s; }
+.d6 { left: 10%; --impact-y: 88%; animation-delay: 0.5s; --speed: 2.0s; }
+.d7 { left: 92%; --impact-y: 35%; animation-delay: 1.9s; --speed: 2.3s; }
+.d8 { left: 55%; --impact-y: 70%; animation-delay: 0.2s; --speed: 2.1s; }
+
+/* --- Estilos para la Tarjeta Amarilla (Rayos Potentes) --- */
+.yellow-special {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+/* Efecto de destello rápido de fondo en la tarjeta */
+.yellow-special:hover {
+    background: rgba(255, 247, 0, 0.05);
+}
+
+.lightning-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Estilo base del Rayo (Grosor y Resplandor Potente) */
+.bolt {
+    position: absolute;
+    top: -10%;
+    background: #fff700;
+    opacity: 0;
+    /* Aumentamos el resplandor para el nuevo grosor */
+    filter: drop-shadow(0 0 15px #f1c40f) drop-shadow(0 0 5px #fff);
+}
+
+/* Animación Errática: Destello muy rápido y mucha espera (se mantiene) */
+@keyframes lightning-strike {
+    0%, 15%, 25%, 100% { opacity: 0; }
+    16%, 21% { 
+        opacity: 1; 
+        background: #ffffff;
+        filter: drop-shadow(0 0 25px #fff);
+    }
+    17%, 20% { 
+        opacity: 0.7; 
+        background: #f1c40f;
+    }
+}
+
+.yellow-special:hover .bolt {
+    animation: lightning-strike var(--speed) infinite;
+}
+
+/* --- Personalización de cada Rayo (Ancho y Forma Definida) --- */
+
+/* Rayo 1: Zigzag clásico ancho a la izquierda */
+.b1 { 
+    left: 15%; 
+    width: 25px; /* Aumentamos el ancho significativamente */
+    height: 110%; 
+    --speed: 3.8s; 
+    animation-delay: 0.1s;
+    /* Polígono simplificado y ancho */
+    clip-path: polygon(50% 0%, 30% 35%, 70% 35%, 20% 70%, 50% 70%, 10% 100%, 30% 100%, 70% 55%, 30% 55%, 70% 20%, 30% 20%);
+}
+
+/* Rayo 2: Muy potente y grueso al centro (Mantenemos el impacto) */
+.b2 { 
+    left: 48%; 
+    width: 35px; /* El más ancho de todos */
+    height: 120%; 
+    --speed: 5.2s; 
+    animation-delay: 2.3s;
+    clip-path: polygon(40% 0, 55% 25%, 25% 25%, 70% 55%, 35% 55%, 85% 85%, 50% 85%, 90% 100%, 35% 75%, 60% 75%, 20% 45%, 50% 45%);
+}
+
+/* Rayo 3: Inclinado y robusto */
+.b3 { 
+    left: 72%; 
+    width: 20px; 
+    height: 100%; 
+    --speed: 3s; 
+    animation-delay: 1s;
+    clip-path: polygon(90% 0, 45% 45%, 80% 45%, 15% 100%, 55% 55%, 15% 55%);
+}
+
+/* --- Estilos para la Tarjeta Naranja --- */
+.orange-special {
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1a1a; /* Fondo oscuro para que resalte el fuego */
+}
+
+.fire-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- El Sol al fondo --- */
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #ffcc00 0%, #ff6600 70%, transparent 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Invisible al inicio */
+    filter: blur(15px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Al hacer Hover, el sol se expande y brilla */
+.orange-special:hover .sun {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(2.5);
+    animation: sun-pulse 3s infinite alternate;
+}
+
+@keyframes sun-pulse {
+    from { filter: blur(15px); opacity: 0.5; }
+    to { filter: blur(25px); opacity: 0.8; }
+}
+
+/* --- Las Brasas Ardientes --- */
+.ember {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: #ff5722;
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(1px);
+    box-shadow: 0 0 10px #ff9800, 0 0 20px #ff5722;
+}
+
+/* Animación de las brasas (Solo en Hover) */
+.orange-special:hover .ember {
+    animation: ember-rise var(--duration) infinite ease-in;
+}
+
+@keyframes ember-rise {
+    0% {
+        bottom: -10px;
+        opacity: 0;
+        transform: translateX(0) scale(1);
+    }
+    20% {
+        opacity: 1;
+        background: #ffeb3b; /* Color más brillante al "quemarse" */
+    }
+    100% {
+        bottom: 110%;
+        opacity: 0;
+        transform: translateX(var(--drift)) scale(0.3) rotate(360deg);
+    }
+}
+
+/* --- Variedad de Brasas (Posiciones y Tiempos) --- */
+.e1 { left: 10%; --duration: 2s; --drift: 30px; animation-delay: 0.1s; }
+.e2 { left: 30%; --duration: 2.5s; --drift: -20px; animation-delay: 0.5s; }
+.e3 { left: 50%; --duration: 1.8s; --drift: 40px; animation-delay: 1.2s; }
+.e4 { left: 70%; --duration: 3s; --drift: -40px; animation-delay: 0.3s; }
+.e5 { left: 85%; --duration: 2.2s; --drift: 10px; animation-delay: 0.8s; }
+.e6 { left: 40%; --duration: 2.7s; --drift: -15px; animation-delay: 1.5s; }
