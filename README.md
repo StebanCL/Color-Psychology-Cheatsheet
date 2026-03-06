@@ -42,4 +42,4 @@ In modern UI/UX, color is a silent language. This tool provides:
 **StebanCL** *Full Stack Developer & Vibecoder*
 
 ---
-© 2026 | Built for the next generation of visual interfaces.
+© 2026 | Built for the next generation of visual interfaces 🦝.
