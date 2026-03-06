@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Psychology Cheatsheet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="drawer" id="sideDrawer">
+        <div class="drawer-handle" onclick="toggleDrawer()">
+            <span>INFO</span>
+        </div>
+
+        <div class="drawer-content">
+            <h3>Project Strategy</h3>
+            <p>A reference tool for intentional UI design.</p>
+            <hr>
+            <h4>Core Pillars</h4>
+            <ul>
+                <li><strong>Neuro-Design:</strong> Aligning hues with human emotion.</li>
+                <li><strong>Vibecoding:</strong> AI-assisted high-speed iteration.</li>
+                <li><strong>UX Utility:</strong> Simplifying color theory.</li>
+            </ul>
+            <div class="context-note">
+                <p>Designed with <strong>Vibecoding</strong> principles for seamless integration.</p>
+            </div>
+            <p class="author-tag">Design by StebanCL | 2026</p>
+        </div>
+    </div>
+
+    <header>
+        <h1>Color Psychology</h1>
+        <p class="subtitle">Cheatsheet</p>
+    </header>
+
+    <main class="grid-container">
+        
+        <div class="color-card red-special">
+            <div class="color-bar red"></div>
+            <div class="pulse-glow"></div>
+
+            <div class="blood-rain-container">
+                <div class="drop d1"></div>
+                <div class="drop d2"></div>
+                <div class="drop d3"></div>
+                </div>
+
+            <div class="content">
+                <h2 class="color-name">Red</h2>
+                <p class="color-desc">passion, love, anger, danger, warning</p>
+            </div>
+        </div>
+
+        <div class="color-card orange-special">
+            <div class="color-bar orange"></div>
+            <div class="fire-container" id="orange-fire"></div> <div class="content">
+                <h2 class="color-name">Orange</h2>
+                <p class="color-desc">enthusiasm, happiness, attraction, creativity</p>
+            </div>
+        </div>
+
+        <div class="color-card green-special">
+            <div class="color-bar green"></div>
+            <div class="glow green"></div>
+            
+            <div class="roots-container" id="green-roots"></div>
+
+            <div class="content">
+                <h2 class="color-name">Green</h2>
+                <p class="color-desc">nature, growth, health, harmony, money</p>
+            </div>
+        </div>
+
+        <div class="color-card tsunami-horizontal">
+            <div class="color-bar blue"></div>
+            <div class="glow blue"></div>
+            
+            <div class="bubbles-container" id="blue-bubbles"></div>
+
+            <div class="content">
+                <h2 class="color-name">Blue</h2>
+                <p class="color-desc">calmness, trust, loyalty, wisdom, mystery</p>
+            </div>
+        </div>
+
+        <div class="color-card purple-card">
+            <div class="color-bar purple"></div>
+            <div class="glow purple"></div>
+
+            <div class="magic-container">
+                <div class="rune r1">ᚱ</div>
+                <div class="rune r2">ᛗ</div>
+                <div class="rune r3">ᚠ</div>
+                <div class="rune r4">ᚵ</div>
+                <div class="rune r5">ᛘ</div>
+                <div class="star s1"></div>
+                <div class="star s2"></div>
+                <div class="star s3"></div>
+                <div class="star s4"></div>
+            </div>
+
+            <div class="content">
+                <h2 class="color-name">Purple</h2>
+                <p class="color-desc">royalty, luxury, creativity, mystery</p>
+            </div>
+        </div>
+
+        <div class="color-card yellow-special">
+            <div class="color-bar yellow"></div>
+            <div class="glow yellow"></div>
+            
+            <div class="lightning-container" id="yellow-lightning">
+                <div class="bolt b1"></div>
+                <div class="bolt b2"></div>
+                <div class="bolt b3"></div>
+                <div class="bolt b4"></div>
+                <div class="bolt b5"></div>
+                <div class="bolt b6"></div>
+                <div class="bolt b7"></div>
+                <div class="bolt b8"></div>
+                <div class="bolt b9"></div>
+                <div class="bolt b10"></div>
+                <div class="bolt b11"></div>
+                <div class="bolt b12"></div>
+            </div>
+
+            <div class="content">
+                <h2 class="color-name">Yellow</h2>
+                <p class="color-desc">happiness, optimism, energy, attention</p>
+            </div>
+        </div>
+
+        <div class="color-card">
+            <div class="color-bar radioactive"></div>
+            <div class="glow radioactive"></div>
+            <div class="content">
+                <h2 class="color-name">Neon</h2>
+                <p class="color-desc">electrifying energy, high-tech glow, cyber-power</p>
+            </div>
+        </div>
+
+        <div class="color-card flower-power">
+            <div class="color-bar pink"></div>
+            <div class="glow pink"></div>
+
+            <div class="flower-container">
+                <div class="flower f1"></div>
+                <div class="flower f2"></div>
+                <div class="flower f3"></div>
+                <div class="flower f4"></div>
+                <div class="flower f5"></div>
+                <div class="flower f6"></div>
+                <div class="flower f7"></div>
+                <div class="flower f8"></div>
+                <div class="flower f9"></div>
+                <div class="flower f10"></div>
+            </div>
+
+            <div class="content">
+                <h2 class="color-name">Pink</h2>
+                <p class="color-desc">innocence, femininity, compassion, love</p>
+            </div>
+        </div>
+
+        <div class="color-card black-card">
+            <div class="color-bar black"></div>
+            <div class="glow black"></div>
+
+            <div class="void-container">
+                <div class="black-hole"></div>
+                <div class="captured-emoji ce1"></div>
+                <div class="captured-emoji ce2"></div>
+                <div class="captured-emoji ce3"></div>
+                <div class="captured-emoji ce4"></div>
+                <div class="captured-emoji ce5"></div>
+            </div>
+
+            <div class="content">
+                <h2 class="color-name">Black</h2>
+                <p class="color-desc">power, sophistication, mystery, evil</p>
+            </div>
+        </div>
+
+        <div class="color-card white-card">
+            <div class="color-bar white"></div>
+            <div class="glow white"></div>
+
+            <div class="cloud-container">
+                <div class="cloud c1"></div>
+                <div class="cloud c2"></div>
+                <div class="cloud c3"></div>
+                <div class="cloud c4"></div>
+                <div class="cloud c5"></div>
+                <div class="cloud c6"></div>
+            </div>
+
+            <div class="content">
+                <h2 class="color-name">White</h2>
+                <p class="color-desc">purity, innocence, cleanliness, peace</p>
+            </div>
+        </div>
+
+        <div class="color-card brown-card">
+            <div class="color-bar brown"></div>
+            <div class="glow brown"></div>
+
+            <div class="chocolate-bar">
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+                <div class="choco-square"></div>
+            </div>
+
+            <div class="content">
+                <h2 class="color-name">Brown</h2>
+                <p class="color-desc">earthiness, reliability, comfort, warmth</p>
+            </div>
+        </div>
+
+        <div class="color-card silver-card">
+            <div class="color-bar silver"></div>
+            <div class="glow silver"></div>
+
+            <div class="chess-columns">
+                <div class="chess-col c1"></div>
+                <div class="chess-col c2"></div>
+                <div class="chess-col c3"></div>
+                <div class="chess-col c4"></div>
+                <div class="chess-col c5"></div>
+                <div class="chess-col c6"></div>
+                <div class="chess-col c7"></div>
+                <div class="chess-col c8"></div>
+            </div>
+
+            <div class="content">
+                <h2 class="color-name">Silver</h2>
+                <p class="color-desc">strategy, modern, industrial, cold</p>
+            </div>
+        </div>
+
+        <div class="color-card gold-card">
+            <div class="color-bar gold"></div>
+            <div class="glow gold"></div>
+
+            <div class="gold-wall">
+                <div class="ingot"></div>
+                <div class="ingot"></div>
+                <div class="ingot"></div>
+                <div class="ingot"></div>
+                <div class="ingot"></div>
+                <div class="ingot"></div>
+            </div>
+
+            <div class="content">
+                <h2 class="color-name">Gold</h2>
+                <p class="color-desc">wealth, success, luxury, brilliance</p>
+            </div>
+        </div>  
+
+    </main>
+    <script src="script.js"></script>
+
+    <br>
+    <br>
+
+    <footer class="main-footer">
+        <div class="footer-divider"></div>
+        
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4 class="footer-head">Lead Designer</h4>
+                <p class="footer-text">
+                    Concept and architecture by <strong>StebanCL</strong>. 
+                    Exploration of visual harmony and digital psychology.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-head">Built with AI</h4>
+                <p class="footer-text">
+                    Developed through <span>Vibecoding</span>. 
+                    A high-speed synergy between human intent and machine intelligence.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-head">Open Source</h4>
+                <a href="https://github.com/StebanCL" target="_blank" class="footer-github-btn">
+                    <i class="fab fa-github"></i>
+                    Follow StebanCL
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-legal">
+            <p>&copy; 2026 &bull; Crafted by StebanCL via Vibecoding</p>
+        </div>
+    </footer>
+
+</body>
+</html>
